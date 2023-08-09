@@ -1,0 +1,52 @@
+.InventoryContainer {
+  padding: 16px;
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 960px) {
+  .InventoryContainer {
+    padding: 32px;
+  }
+}
+
+.Inventory {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  justify-content: flex-start;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 16px;
+
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 960px) {
+  .Inventory {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 48px 32px;
+  }
+}
+
+.NoResults {
+  height: 100%;
+  color: #7D8FA1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 15vh;
+  padding-bottom: 25vh;
+}
+
+.NoResults h3 {
+  margin: 0;
+}
+
+.NoResults--hidden {
+  display: none;
+}
+
