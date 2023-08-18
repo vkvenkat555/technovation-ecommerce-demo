@@ -2,8 +2,6 @@ import { useSpeechContext } from '@speechly/react-client';
 import {
   BigTranscript,
   BigTranscriptContainer,
-  // PushToTalkButton,
-  // IntroPopup,
 } from '@speechly/react-ui';
 import classNames from 'classnames';
 import Inventory from 'components/Inventory';
@@ -46,14 +44,6 @@ export default function App() {
       <button type="button" className={classes} onClick={handleClick}>
         <MicIcon width={36} height={36} />
       </button>
-      {/* <PushToTalkButton
-        captureKey=" "
-        placement="bottom"
-        size="80px"
-        showTime={3000}
-        powerOn="auto"
-      />
-      <IntroPopup/> */}
     </AppContextProvider>
   );
 }

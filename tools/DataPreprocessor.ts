@@ -35,13 +35,7 @@ let codex: Codex = {};
   saveLookups(codex, VOICE_CONFIG_FOLDER);
   saveFilterJson(codex, "src/generated/filters.json");
 
-  /*
-  if (!codexUpdated) {
-    console.log(
-      "No master config updates detected, skipped filter-config update and creation of lookups and filters."
-    );
-  }
-  */
+
 })();
 
 // Ensuring all keys are string keys leverages the fact that with string keys, creation order of object keys will be maintained in practice as of ES2015
@@ -81,11 +75,7 @@ const lookupAndUpdateCodex = (
     }
   });
 };
-/*
-let rawdata = fs.readFileSync(filename, "utf8");
-let entries = JSON.parse(rawdata);
-console.log(entries[0]);
-*/
+
 
 async function processJsonlInventorySaveJson(
   filename: string,
@@ -122,58 +112,6 @@ async function processJsonlInventorySaveJson(
     });
   });
 }
-/*
-
-async function processCsvInventorySaveJson(csvPath: string, outFile: string) {
-  let csvToJson = csv({
-    colParser: {
-      colors: function (item, head, resultRow, row, colIdx) {
-        item = item.replace(/{(.*)}/, "$1"); // Grab content inside {}
-        let items = item.split(",");
-        lookupAndUpdateCodex(codex, "colors", items);
-        return items.join(", ");
-        //.map((i) => `"${i}"`)
-        // item = `[${item}]`;
-        // return JSON.parse(item);
-      },
-      category: function (item, head, resultRow, row, colIdx) {
-        let items = item.split(" > ");
-        lookupAndUpdateCodex(codex, "category", items);
-        return items.join(", ");
-      },
-      brand: function (item, head, resultRow, row, colIdx) {
-        lookupAndUpdateCodex(codex, "brand", [item]);
-        return item;
-      },
-    },
-    // noheader:true,
-    // output: "csv"
-    ignoreEmpty: true,
-    checkType: true,
-    trim: true,
-    delimiter: "\t",
-    ignoreColumns: /EOF/,
-  });
-
-  let csvRows;
-
-  try {
-    csvRows = await csvToJson.fromFile(csvPath);
-  } catch (e) {
-    throw e;
-  }
-
-  if (csvRows) {
-    // console.log(csvRows);
-    let jsonString = JSON.stringify(csvRows, null, 2);
-    fs.writeFile(outFile, jsonString, (err) => {
-      if (err) throw err;
-      console.log(`The file ${outFile} has been saved!`);
-    });
-  }
-}
-
-*/
 
 async function loadCodexCsv(csvPath: string, separator: string) {
   let csvToJson = csv({
@@ -206,15 +144,7 @@ async function loadCodexCsv(csvPath: string, separator: string) {
       codex[row.tag][toKey(row.key)] = codexRow;
 
       if (codexRow.isActive) {
-        /*        
-        if (codexRow.aliases.length == 0) {
-          console.warn(
-            `WARN: No aliases for '${row.key}' in '${row.tag}' at line ${
-              index + 1
-            }`
-          );
-        }
-*/
+        
       }
     });
   } catch (e) {}
