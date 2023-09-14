@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 
-const appId = '4d7fd32a-909b-45a0-93da-e313fda00bc0';
+const appId = '86911fbb-94e9-4f6a-8aee-c73aac1d6f62';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

@@ -1,6 +1,8 @@
 import { useSpeechContext } from '@speechly/react-client';
 import {
+  PushToTalkButton,
   BigTranscript,
+  IntroPopup,
   BigTranscriptContainer,
 } from '@speechly/react-ui';
 import classNames from 'classnames';
@@ -8,7 +10,6 @@ import Inventory from 'components/Inventory';
 import SmartFilter from 'components/SmartFilters';
 import Navigation from 'components/Navigation';
 import { AppContextProvider } from 'AppContext';
-import { ReactComponent as MicIcon } from './res/mic.svg';
 import 'components/BigTransscript.css';
 import 'App.css';
 
@@ -39,11 +40,13 @@ export default function App() {
           <BigTranscriptContainer position="absolute">
             <BigTranscript formatText={false} mockSegment={segment} />
           </BigTranscriptContainer>
+          <PushToTalkButton placement="bottom" captureKey=" " />
+          <IntroPopup />
         </Inventory>
       </div>
-      <button type="button" className={classes} onClick={handleClick}>
+      {/* <button type="button" className={classes} onClick={handleClick}>
         <MicIcon width={36} height={36} />
-      </button>
+      </button> */}
     </AppContextProvider>
   );
 }
